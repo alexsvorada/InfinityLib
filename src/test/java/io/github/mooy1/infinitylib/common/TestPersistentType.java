@@ -14,10 +14,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import be.seeseemelk.mockbukkit.MockBukkit;
-import be.seeseemelk.mockbukkit.ServerMock;
-import be.seeseemelk.mockbukkit.WorldMock;
-import be.seeseemelk.mockbukkit.persistence.PersistentDataContainerMock;
+import org.mockbukkit.mockbukkit.MockBukkit;
+import org.mockbukkit.mockbukkit.ServerMock;
+import org.mockbukkit.mockbukkit.world.WorldMock;
+import org.mockbukkit.mockbukkit.persistence.PersistentDataContainerMock;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -47,7 +47,7 @@ class TestPersistentType {
         container.set(key, PersistentType.ITEM_STACK, item);
         assertEquals(item, container.get(key, PersistentType.ITEM_STACK));
 
-        item = SlimefunItems.ANCIENT_ALTAR;
+        item = SlimefunItems.ANCIENT_ALTAR.item();
         container.set(key, PersistentType.ITEM_STACK, item);
         assertEquals(item, container.get(key, PersistentType.ITEM_STACK));
     }
@@ -56,12 +56,12 @@ class TestPersistentType {
     @Disabled(value = "MockBukkit issue")
     void testItemStackOld() {
         ItemStack item = new ItemStack(Material.OBSIDIAN);
-        container.set(key, PersistentType.ITEM_STACK_OLD, item);
-        assertEquals(item, container.get(key, PersistentType.ITEM_STACK_OLD));
+        container.set(key, PersistentType.ITEM_STACK, item);
+        assertEquals(item, container.get(key, PersistentType.ITEM_STACK));
 
-        item = SlimefunItems.ANCIENT_ALTAR;
-        container.set(key, PersistentType.ITEM_STACK_OLD, item);
-        assertEquals(item, container.get(key, PersistentType.ITEM_STACK_OLD));
+        item = SlimefunItems.ANCIENT_ALTAR.item();
+        container.set(key, PersistentType.ITEM_STACK, item);
+        assertEquals(item, container.get(key, PersistentType.ITEM_STACK));
     }
 
     @Test
@@ -71,7 +71,7 @@ class TestPersistentType {
         container.set(key, PersistentType.ITEM_STACK_LIST, list);
         assertEquals(list, container.get(key, PersistentType.ITEM_STACK_LIST));
 
-        list = Arrays.asList(new ItemStack(Material.PUMPKIN), SlimefunItems.ADVANCED_CIRCUIT_BOARD);
+        list = Arrays.asList(new ItemStack(Material.PUMPKIN), SlimefunItems.ADVANCED_CIRCUIT_BOARD.item());
         container.set(key, PersistentType.ITEM_STACK_LIST, list);
         assertEquals(list, container.get(key, PersistentType.ITEM_STACK_LIST));
     }

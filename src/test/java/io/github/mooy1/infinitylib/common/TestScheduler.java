@@ -9,8 +9,8 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import be.seeseemelk.mockbukkit.MockBukkit;
-import be.seeseemelk.mockbukkit.scheduler.BukkitSchedulerMock;
+import org.mockbukkit.mockbukkit.MockBukkit;
+import org.mockbukkit.mockbukkit.scheduler.BukkitSchedulerMock;
 import io.github.mooy1.infinitylib.core.MockAddon;
 
 import static io.github.mooy1.infinitylib.common.Scheduler.repeat;

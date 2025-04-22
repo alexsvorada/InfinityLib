@@ -9,9 +9,10 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import be.seeseemelk.mockbukkit.MockBukkit;
-import be.seeseemelk.mockbukkit.ServerMock;
-import be.seeseemelk.mockbukkit.entity.PlayerMock;
+import org.mockbukkit.mockbukkit.MockBukkit;
+import org.mockbukkit.mockbukkit.ServerMock;
+import org.mockbukkit.mockbukkit.command.CommandResult;
+import org.mockbukkit.mockbukkit.entity.PlayerMock;
 import io.github.mooy1.infinitylib.core.AbstractAddon;
 import io.github.mooy1.infinitylib.core.MockAddon;
 
@@ -19,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class TestAddonCommand {
 
@@ -153,11 +155,13 @@ class TestAddonCommand {
     }
 
     private static void assertResponse(CommandSender sender, String... args) {
-        server.execute(command, sender, args).assertResponse(args[args.length - 1]);
+        CommandResult result = server.execute(command, sender, args);
+        assertEquals(args[args.length - 1], result.getSender().nextMessage());
     }
 
     private static void assertNoResponse(CommandSender sender, String... args) {
-        server.execute(command, sender, args).assertNoResponse();
+        CommandResult result = server.execute(command, sender, args);
+        assertNull(result.getSender().nextMessage());
     }
 
     private static void assertCompletion(CommandSender sender, String completion, String... args) {

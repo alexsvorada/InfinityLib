@@ -14,9 +14,9 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import be.seeseemelk.mockbukkit.MockBukkit;
-import be.seeseemelk.mockbukkit.ServerMock;
-import be.seeseemelk.mockbukkit.entity.PlayerMock;
+import org.mockbukkit.mockbukkit.MockBukkit;
+import org.mockbukkit.mockbukkit.ServerMock;
+import org.mockbukkit.mockbukkit.entity.PlayerMock;
 import io.github.mooy1.infinitylib.common.Events;
 import io.github.mooy1.infinitylib.core.MockAddon;
 import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile;
@@ -59,7 +59,7 @@ class TestGroups {
 
         assertTrue(sub.isRegistered());
         assertTrue(sub.isHidden(p));
-        assertFalse(multi.isHidden(p));
+        assertFalse(multi.isVisible(p));
         assertEquals(sub.getItem(p), p.getOpenInventory().getItem(9));
 
         Events.call(new InventoryClickEvent(p.getOpenInventory(), InventoryType.SlotType.CONTAINER,

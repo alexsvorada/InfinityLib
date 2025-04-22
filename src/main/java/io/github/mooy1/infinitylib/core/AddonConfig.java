@@ -111,7 +111,7 @@ public final class AddonConfig extends YamlConfiguration {
     @Nonnull
     @Override
     public String saveToString() {
-        options().copyDefaults(true).copyHeader(false).indent(2);
+        options().copyDefaults(true).parseComments(true).indent(2);
         String defaultSave = super.saveToString();
 
         try {

@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
-import be.seeseemelk.mockbukkit.MockBukkit;
+import org.mockbukkit.mockbukkit.MockBukkit;
 import io.github.mooy1.infinitylib.core.MockAddon;
 import io.github.mooy1.infinitylib.groups.SubGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
@@ -39,8 +39,8 @@ class TestCraftingBlock {
         machine = new CraftingBlock(new SubGroup("key", new ItemStack(Material.DIAMOND)),
                 new SlimefunItemStack("ID", Material.STONE, "name"),
                 RecipeType.ANCIENT_ALTAR, new ItemStack[0]);
-        output = new CustomItemStack(SlimefunItems.SALT, 2);
-        input1 = SlimefunItems.COPPER_DUST.clone();
+        output = CustomItemStack.create(SlimefunItems.SALT.item(), 2);
+        input1 = SlimefunItems.COPPER_DUST.item().clone();
         input2 = new ItemStack(Material.NETHERITE_BLOCK, 2).clone();
     }
 

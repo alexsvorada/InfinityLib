@@ -5,14 +5,16 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.ThrowingSupplier;
 
-import be.seeseemelk.mockbukkit.MockBukkit;
-import be.seeseemelk.mockbukkit.ServerMock;
+import org.mockbukkit.mockbukkit.MockBukkit;
+import org.mockbukkit.mockbukkit.ServerMock;
+import org.mockbukkit.mockbukkit.command.CommandResult;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class TestAbstractAddon {
 
@@ -64,7 +66,8 @@ class TestAbstractAddon {
     @Test
     void testCommand() {
         assertNotNull(MockAddon.instance().getAddonCommand());
-        server.executeConsole("mockaddon").assertSucceeded();
+        CommandResult result = server.executeConsole("mockaddon");
+        assertTrue(result.hasSucceeded());
     }
 
     @Test
