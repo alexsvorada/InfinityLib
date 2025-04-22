@@ -51,7 +51,7 @@ public final class PersistentType<T, Z> implements PersistentDataType<T, Z> {
                 }
                 catch (Exception e) {
                     e.printStackTrace();
-                    return new CustomItemStack(Material.STONE, "&cERROR");
+                    return CustomItemStack.create(Material.STONE, "&cERROR");
                 }
             }
     );
@@ -157,10 +157,10 @@ public final class PersistentType<T, Z> implements PersistentDataType<T, Z> {
                 }
                 catch (InvalidConfigurationException e) {
                     e.printStackTrace();
-                    return new CustomItemStack(Material.STONE, "&cERROR");
+                    return CustomItemStack.create(Material.STONE, "&cERROR");
                 }
                 ItemStack item = config.getItemStack("item");
-                return item != null ? item : new CustomItemStack(Material.STONE, "&cERROR");
+                return item != null ? item : CustomItemStack.create(Material.STONE, "&cERROR");
             }
     );
 

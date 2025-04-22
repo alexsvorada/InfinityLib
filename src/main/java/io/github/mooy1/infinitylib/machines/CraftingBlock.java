@@ -29,7 +29,7 @@ import me.mrCookieSlime.Slimefun.api.inventory.DirtyChestMenu;
 @ParametersAreNonnullByDefault
 public class CraftingBlock extends MenuBlock {
 
-    public static final ItemStack CLICK_TO_CRAFT = new CustomItemStack(Material.LIME_STAINED_GLASS_PANE, "&aClick To Craft!");
+    public static final ItemStack CLICK_TO_CRAFT = CustomItemStack.create(Material.LIME_STAINED_GLASS_PANE, "&aClick To Craft!");
 
     @Setter
     protected MachineLayout layout = MachineLayout.CRAFTING_DEFAULT;
